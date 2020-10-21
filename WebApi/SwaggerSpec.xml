@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Financial.WebApi</name>
+    </assembly>
+    <members>
+        <member name="M:Financial.WebApi.Controllers.WeatherForecastController.Get">
+            <summary>
+            List of weather around the world
+            </summary>
+            <remarks>Generate a list of weather around the worlds</remarks>
+            <returns>List of weathers</returns>
+        </member>
+    </members>
+</doc>

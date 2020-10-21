@@ -24,6 +24,11 @@ namespace Financial.WebApi.Controllers
             _logger = logger;
         }
 
+        /// <summary>
+        /// List of weather around the world
+        /// </summary>
+        /// <remarks>Generate a list of weather around the worlds</remarks>
+        /// <returns>List of weathers</returns>
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {

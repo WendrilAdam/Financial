@@ -4,6 +4,7 @@ namespace Financial.WebApi
 {
    public class ContaPF
     {
+        public int? Id { get; set; }
         public int Agencia { get; set; }
         public int Conta { get; set; }
 

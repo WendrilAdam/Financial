@@ -7,10 +7,10 @@ namespace Financial.Models
 {
     public class ContaPessoaFisica : Conta
     {
-        public int Agencia { get; set; }
-        public int Conta { get; set; }
-
-        public string TipoConta { get; set; }
         public string NomeCompleto { get; set; }
+        public DateTime DataNascimento { get; set; }
+        public string EstadoCivil { get; set; }
+        public Documento Documento { get; set; }
+        public Genero Genero { get; set; }
     }
 }

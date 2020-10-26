@@ -46,6 +46,18 @@ namespace Financial.WebApi.Controllers
         }
 
         /// <summary>
+        /// Lista de Contas Ordenada por nomes
+        /// </summary>
+        /// <remarks>Geração de lista de contas de clientes ordenada por nomes</remarks>
+        /// <returns>Lista ordenada</returns>
+        [HttpGet("Lista Ordenada por nomes")]
+        public List<ContaPF> GetOrder()
+        {
+            var conta = new ContaPF(); 
+            return GerarLista().OrderBy(conta => conta.NomeCompleto).ToList();
+        }
+
+        /// <summary>
         /// Numero de Contas na lista
         /// </summary>
         /// <remarks>Numero de contas de clientes na lista</remarks>
@@ -141,13 +153,13 @@ namespace Financial.WebApi.Controllers
                 }
                 else
                 {
-                    throw new Exception();
+                    throw new Exception("Há algum campo não preenchido!!!");
                 }
             }
             catch (Exception)
             {
 
-                throw;
+                throw new Exception("Há algum campo não preenchido!!!");
             }
             
         }

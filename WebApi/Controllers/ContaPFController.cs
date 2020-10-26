@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -125,14 +126,30 @@ namespace Financial.WebApi.Controllers
         [HttpPut("{id}")]
         public ContaPF Put(int id, [FromBody] ContaPF contaPF)
         {
-            var conta = Get(id);
+            try
+            {
+                var conta = Get(id);
 
-            conta.Agencia = contaPF.Agencia;
-            conta.Conta = contaPF.Conta;
-            conta.TipoConta = contaPF.TipoConta;
-            conta.NomeCompleto = contaPF.NomeCompleto;
+                if (ValidarCampos(contaPF))
+                {
+                    conta.Agencia = contaPF.Agencia;
+                    conta.Conta = contaPF.Conta;
+                    conta.TipoConta = contaPF.TipoConta;
+                    conta.NomeCompleto = contaPF.NomeCompleto;
 
-            return conta;
+                    return conta;
+                }
+                else
+                {
+                    throw new Exception();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
         }
 
         /// <summary>
@@ -232,6 +249,18 @@ namespace Financial.WebApi.Controllers
             return listaContas;
         }
 
+        private bool ValidarCampos(ContaPF conta)
+        {
+            if(conta.Agencia != 0 && conta.Conta != 0 && conta.NomeCompleto != null && conta.TipoConta != null)
+            {
+                return true;
+            }
+            else 
+            {
+                return false;
+            }
+            
+        }
         #endregion
     }
 }

@@ -35,7 +35,7 @@ namespace Financial.WebApi.Controllers
         }
 
         /// <summary>
-        /// Lista de Contas de Clientes
+        /// Lista de Contas
         /// </summary>
         /// <remarks>Geração de lista de contas de clientes</remarks>
         /// <returns>Lista de Contas</returns>
@@ -46,11 +46,12 @@ namespace Financial.WebApi.Controllers
         }
 
         /// <summary>
-        /// Lista de Contas Ordenada por nomes
+        /// Contas Ordenada por nomes
         /// </summary>
         /// <remarks>Geração de lista de contas de clientes ordenada por nomes</remarks>
         /// <returns>Lista ordenada</returns>
-        [HttpGet("Lista Ordenada por nomes")]
+        [HttpGet]
+        [Route("ordered")]
         public List<ContaPF> GetOrder()
         {
             var conta = new ContaPF(); 
@@ -58,23 +59,12 @@ namespace Financial.WebApi.Controllers
         }
 
         /// <summary>
-        /// Numero de Contas na lista
-        /// </summary>
-        /// <remarks>Numero de contas de clientes na lista</remarks>
-        /// <returns>Quantidade</returns>
-        [HttpGet("Numero de Elementos")]
-        public int GetCont()
-        {
-            var lista = GerarLista();
-            return lista.Count();
-        }
-
-        /// <summary>
-        /// Ultimo item da lista
+        /// Ultimo item
         /// </summary>
         /// <remarks>Ultima conta de cliente na lista</remarks>
         /// <returns>Conta</returns>
-        [HttpGet("Ultima conta da lista")]
+        [HttpGet]
+        [Route("last")]
         public ContaPF GetLast()
         {
             var lista = GerarLista();
@@ -82,7 +72,20 @@ namespace Financial.WebApi.Controllers
         }
 
         /// <summary>
-        /// Busca de Conta por Id
+        /// Numero de Contas
+        /// </summary>
+        /// <remarks>Numero de contas de clientes na lista</remarks>
+        /// <returns>Quantidade</returns>
+        [HttpGet]
+        [Route("count")]
+        public int GetCount()
+        {
+            var lista = GerarLista();
+            return lista.Count();
+        }
+
+        /// <summary>
+        /// Conta por Id
         /// </summary>
         /// <remarks>Busca de lista de contas de clientes por id</remarks>
         /// <returns>Lista de Contas</returns>
@@ -131,7 +134,7 @@ namespace Financial.WebApi.Controllers
         }
 
         /// <summary>
-        /// Atualizar Conta de cliente
+        /// Atualizar Conta
         /// </summary>
         /// <remarks>Atualização de contas de clientes</remarks>
         /// <returns>Lista de Contas</returns>
@@ -165,7 +168,7 @@ namespace Financial.WebApi.Controllers
         }
 
         /// <summary>
-        /// Atualizar Nome de cliente
+        /// Atualizar Nome
         /// </summary>
         /// <remarks>Atualização de nome de cliente</remarks>
         /// <returns>Conta atualizada</returns>
@@ -180,7 +183,7 @@ namespace Financial.WebApi.Controllers
         }
 
         /// <summary>
-        /// Remover Conta de Cliente
+        /// Remover Conta
         /// </summary>
         /// <remarks>Remoção de contas de clientes</remarks>
         /// <returns>Lista de Contas</returns>
@@ -276,7 +279,3 @@ namespace Financial.WebApi.Controllers
         #endregion
     }
 }
-/* 1 - Web Method para retornar a quantidade de itens da lista
- * 2 - web Method que retorne o último item (conta) da lista
- * 3 - Método privado para validar se todas as propriedades estão sendo inseridas, menos o id
- * 4 - Incrementar Web Method Patch para atualizar o nome completo*/

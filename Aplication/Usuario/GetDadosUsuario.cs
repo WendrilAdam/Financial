@@ -1,10 +1,12 @@
-﻿using System;
+﻿using MediatR;
+using System;
 using System.Collections.Generic;
 using System.Text;
+using Financial.Aplication.ValueObject;
 
 namespace Financial.Aplication.Usuario
 {
-    public class GetDadosUsuario
+    public class GetDadosUsuario : IRequest<UsuarioVO>
     {
         private int id;
 

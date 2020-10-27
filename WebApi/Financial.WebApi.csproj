@@ -20,5 +20,9 @@
     <ProjectReference Include="..\Aplication\Financial.Aplication.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
+
 
 </Project>

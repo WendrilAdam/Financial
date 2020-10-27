@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Financial.WebApi.Models.Response
+namespace Financial.Aplication.ValueObject
 {
-    public class UsuarioResponseModel
+    public class UsuarioVO
     {
         public int Id { get; set; }
         public string NomeCompleto { get; set; }

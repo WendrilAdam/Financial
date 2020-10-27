@@ -4,4 +4,9 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Aplication\Financial.Aplication.csproj" />
+    <ProjectReference Include="..\WebApi\Financial.WebApi.csproj" />
+  </ItemGroup>
+
 </Project>

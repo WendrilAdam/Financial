@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Financial.Aplication.Usuario;
-using Financial.WebApi.Models.Response;
+using Financial.Aplication.ValueObject;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -28,7 +28,7 @@ namespace Financial.WebApi.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet("{Id}")]
-        public ActionResult<UsuarioResponseModel> Get (int id)
+        public ActionResult<UsuarioVO> Get (int id)
         {
             var dadosUsuario = mediator.Send(new GetDadosUsuario(id));
             return Ok();
